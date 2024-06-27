@@ -5,12 +5,9 @@ router.get('/', (req, res) => {
   res.send('Esta es la ruta 4');
 });
 
-router.get('/status', (req, res) => {
-  res.sendStatus(418); // I'm a teapot
-});
-
-router.get('/vista', (req, res) => {
-  res.render('index', { title: 'Página Ejemplo', message: 'Hola desde la vista renderizada.' });
+router.get('/params', (req, res) => {
+  const name = req.query.name || 'Anonimo';
+  res.send(`Bienvenido, ${name}!`);
 });
 
 module.exports = router;
